@@ -1,0 +1,13 @@
+opam-version: "2.0"
+version: "3.2.1"
+synopsis: "The boolector project"
+maintainer: "Kakadu"
+
+build: [
+  [ "./contrib/setup-lingeling.sh" ]
+  [ "./contrib/setup-btor2tools.sh" ]
+  [ "ls"]
+  [ "./configure.sh" "--only-lingeling" "--prefix" "%{prefix}%" "--shared"]
+  [ make "-C" "build" ]
+]
+install: [ make "-C" "build" "install" ]
